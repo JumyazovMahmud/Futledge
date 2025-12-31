@@ -1,4 +1,4 @@
-package com.example.futledge
+package app.makhmudjon.futledge
 
 import io.flutter.embedding.android.FlutterActivity
 
