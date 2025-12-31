@@ -31,7 +31,7 @@ class MatchesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Today\'s Matches • ${DateUtils.formatDateReadable(DateTime.now())}'),
+        title: Text('Today\'s Matches'),
         backgroundColor: const Color(0xFF1E1E1E),
       ),
       body: FutureBuilder(

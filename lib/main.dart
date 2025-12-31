@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:futledge/service/connectivity_service.dart';
 import 'package:provider/provider.dart';
-import 'core/theme.dart';
+
+import 'core/theme.dart';                  // Your ThemeProvider and AppTheme
 import 'screens/splash_screen.dart';
 import 'screens/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(
+          create: (_) {
+            final connectivityService = ConnectivityService();
+            connectivityService.initialize(); // Start listening right away
+            return connectivityService;
+          },
+        ),
+      ],
       child: const FutledgeApp(),
     ),
   );
