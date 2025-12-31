@@ -16,7 +16,7 @@ void main() async {
         ChangeNotifierProvider(
           create: (_) {
             final connectivityService = ConnectivityService();
-            connectivityService.initialize(); // Start listening right away
+            connectivityService.initialize();
             return connectivityService;
           },
         ),

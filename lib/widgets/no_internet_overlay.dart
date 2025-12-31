@@ -37,7 +37,6 @@ class NoInternetOverlay extends StatelessWidget {
             const SizedBox(height: 32),
             ElevatedButton.icon(
               onPressed: () {
-                // Optional: trigger manual refresh in parent
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Checking connection...')),
                 );

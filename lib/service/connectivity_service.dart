@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart'; // Import stays the same
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:flutter/material.dart';
 
 class ConnectivityService extends ChangeNotifier {
@@ -21,12 +21,10 @@ class ConnectivityService extends ChangeNotifier {
         return;
       }
 
-      // Correct usage: InternetConnection() singleton
       bool hasInternet = await InternetConnection().hasInternetAccess;
       _updateConnectionStatus(hasInternet);
     });
 
-    // Initial check
     checkConnection();
   }
 
