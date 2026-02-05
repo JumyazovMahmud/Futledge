@@ -16,13 +16,9 @@ class MatchesScreen extends StatelessWidget {
     'Ligue 1',
     'Champions League',
     'Europa League',
-    'Conference League',
     'Saudi Pro League',
-    'Primeira Liga',
-    'Eredivisie',
-    'Brasileirão Série A',
-    'Major League Soccer',
     'Super Lig',
+    'Super Cup'
   ];
 
   @override

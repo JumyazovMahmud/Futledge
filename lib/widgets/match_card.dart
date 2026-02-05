@@ -44,7 +44,12 @@ class MatchCard extends StatelessWidget {
         ? 'https://images.fotmob.com/image_resources/logo/teamlogo/${awayTeamId}_large.png'
         : '';
 
-    final bool showTime = !isLive && !isFinished && time.isNotEmpty;
+    final bool showTime = !isLive && !isFinished && time.isNotEmpty && time.trim() != '- -';
+
+    // Split only if we intend to show time – and handle safely
+    final timeParts = time.trim().split(RegExp(r'\s+')); // split on any whitespace
+    final String timeLine1 = timeParts.isNotEmpty ? timeParts[0] : '';
+    final String timeLine2 = timeParts.length > 1 ? timeParts[1] : '';
 
     return InkWell(
       onTap: onTap,
@@ -66,7 +71,7 @@ class MatchCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-
+              // Home team column
               Column(
                 children: [
                   CircleAvatar(
@@ -109,6 +114,7 @@ class MatchCard extends StatelessWidget {
                 ],
               ),
 
+              // Center column (score + status + time)
               Column(
                 children: [
                   Text(
@@ -121,6 +127,7 @@ class MatchCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       if (isLive)
                         Container(
@@ -143,17 +150,27 @@ class MatchCard extends StatelessWidget {
                         ),
                     ],
                   ),
-                  if (showTime)
+                  if (showTime && timeLine1.isNotEmpty) ...[
                     Padding(
                       padding: const EdgeInsets.only(top: 6),
                       child: Text(
-                        time,
+                        timeLine1,
                         style: const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ),
+                    if (timeLine2.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 2),
+                        child: Text(
+                          timeLine2,
+                          style: const TextStyle(fontSize: 14, color: Colors.grey),
+                        ),
+                      ),
+                  ],
                 ],
               ),
 
+              // Away team column
               Column(
                 children: [
                   CircleAvatar(
