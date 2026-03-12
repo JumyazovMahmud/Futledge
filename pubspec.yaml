@@ -55,7 +55,7 @@ flutter_native_splash:
   color: "#000000"          # Pure black background
   android_12:
     color: "#000000"  # Pure black background
-adaptive_icon_background: "#0A0A0F"  # your dark color
+
 
   # For full custom text (use an image instead of built-in text, since it doesn't support RichText/italic directly)
   # Best: Create a PNG image of "FUTLEDGE" (red F, italic white UTLEDGE) in any editor (Canva, Photoshop, etc.)
