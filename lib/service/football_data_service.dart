@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:futledge/core/constants.dart';
+
+import '../core/constants.dart';
 import '../models/league.dart';
 import '../models/standing.dart';
 
